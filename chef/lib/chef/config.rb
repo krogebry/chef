@@ -181,6 +181,7 @@ class Chef
     pid_file nil
 
     chef_server_url   "http://localhost:4000"
+    chef_data_url     "http://localhost:4000"
     registration_url  "http://localhost:4000"
     template_url      "http://localhost:4000"
     role_url          "http://localhost:4000"

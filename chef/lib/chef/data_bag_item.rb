@@ -87,11 +87,11 @@ class Chef
     end
 
     def chef_server_rest
-      Chef::REST.new(Chef::Config[:chef_server_url])
+      Chef::REST.new(Chef::Config[:chef_data_url])
     end
 
     def self.chef_server_rest
-      Chef::REST.new(Chef::Config[:chef_server_url])
+      Chef::REST.new(Chef::Config[:chef_data_url])
     end
 
     def raw_data
@@ -193,7 +193,7 @@ class Chef
         bag = Chef::DataBag.load(data_bag)
         item = bag[name]
       else
-        item = Chef::REST.new(Chef::Config[:chef_server_url]).get_rest("data/#{data_bag}/#{name}")
+        item = Chef::REST.new(Chef::Config[:chef_data_url]).get_rest("data/#{data_bag}/#{name}")
       end
 
       if item.kind_of?(DataBagItem)

@@ -110,11 +110,11 @@ class Chef
     end
 
     def chef_server_rest
-      Chef::REST.new(Chef::Config[:chef_server_url])
+      Chef::REST.new(Chef::Config[:chef_data_url])
     end
 
     def self.chef_server_rest
-      Chef::REST.new(Chef::Config[:chef_server_url])
+      Chef::REST.new(Chef::Config[:chef_data_url])
     end
 
     # Create a Chef::Role from JSON
@@ -143,7 +143,7 @@ class Chef
           response
         end
       else
-        Chef::REST.new(Chef::Config[:chef_server_url]).get_rest("data")
+        Chef::REST.new(Chef::Config[:chef_data_url]).get_rest("data")
       end
     end
 
@@ -165,7 +165,7 @@ class Chef
           bag
         end
       else
-        Chef::REST.new(Chef::Config[:chef_server_url]).get_rest("data/#{name}")
+        Chef::REST.new(Chef::Config[:chef_data_url]).get_rest("data/#{name}")
       end
     end
 
